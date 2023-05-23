@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="categorii/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./script.js" async></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="home.html" class="logo"><img src="logo.png" alt="Logo" /></a>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="myaccount.html">My Account</a></li>
+            <li>
+              <a href="shoppingcart.html"
+                ><i class="fa fa-shopping-cart fa-2x cosicon"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cos">
+        <div class="articole">
+          <div class="produse-adaugate">
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart1.avif" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>SOCCER BALL SIZE 5</h3>
+                <p class="pret">$49.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart2.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>TENNIS PAD</h3>
+                <p class="pret">$199.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart3.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>SKI WINTER JACKET</h3>
+                <p class="pret">$79.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart4.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>BASKET HOOP</h3>
+                <p class="pret">$169.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+          </div>
+          <div class="informatii-checkout">
+            <label class="checkout-label" for="name">Name:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="adress">Adress:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="email">Phone Number:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="discount">Discount:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <button class="checkout-button">CHECK OUT</button>
+            <div class="checkout-total">
+              <h4>TOTAL :</h4>
+              <p class="price-total">$499.96</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-container">
+        <footer class="footer">
+          <p>&copy; 2023 BetterPlay</p>
+          <p><a href="#">Privacy Policy</a></p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
