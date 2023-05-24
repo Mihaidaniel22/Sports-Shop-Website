@@ -143,14 +143,16 @@ h1,h2,h3,h4,h5,h6,p{
   width: 100%;
   height: 80%;
   justify-content: center;
+  align-items: center;
 }
 
 .football-container{
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  width: 70%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-items: center;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -159,6 +161,7 @@ h1,h2,h3,h4,h5,h6,p{
   flex-direction:column;
   justify-content: space-around;
   align-items: center;
+  gap: 1.0rem;
 }
 
 .articles-container img{
@@ -166,18 +169,11 @@ h1,h2,h3,h4,h5,h6,p{
   height: 60%;
   transition: all 0.2s ease-in-out;
 }
-
-.articles-container img:hover{
-  width: 100%;
-  height: 70%;
+ 
+.transition:hover{
+  transform: scale(1.1);
   transition: all 0.2s ease-in-out;
 }
-
-.articles-container img:hover button{
-  width: 100%;
-  transition: all 0.2s ease-in-out;
-} 
-
 .articles-container button{
   background-color:#FB8500;
   font-family: 'Oswald', sans-serif;

@@ -38,7 +38,7 @@
       <div class="cos">
         <div class="articole">
           <div class="produse-adaugate">
-            <div class="continut-articole">
+            <!--<div class="continut-articole">
               <div class="poza">
                 <img src="cart1.avif" alt="" />
               </div>
@@ -89,7 +89,86 @@
                 <input class="cantitati-input" type="number" value="1" />
                 <button class="cantitati-button">REMOVE</button>
               </div>
-            </div>
+            </div>-->
+
+            <script>
+              const fetchItems = async () => {
+                try {
+                  const response = await fetch("http://localhost:3010/cart");
+                  if (!response.ok) {
+                    throw new Error("failed to fetch cart");
+                  }
+                  const data = await response.json();
+                  console.log("data fetch succesfully");
+                  return data;
+                } catch (error) {
+                  console.error(error);
+                  return [];
+                }
+              };
+
+              (async () => {
+                const items = await fetchItems();
+                console.log(items);
+
+                const renderItems = (items) => {
+                  items.forEach((item) => {
+                    const cartContainer =
+                      document.querySelector(".produse-adaugate");
+                    const articlesContainer = document.createElement("div");
+                    articlesContainer.classList.add("continut-articole");
+
+                    //imagine
+                    const imgCont = document.createElement("div");
+                    const img = document.createElement("img");
+
+                    imgCont.classList.add("poza");
+                    img.setAttribute("src", item.image);
+                    imgCont.appendChild(img);
+                    articlesContainer.appendChild(imgCont);
+
+                    //pret
+                    const pretCont = document.createElement("div");
+                    const nume = document.createElement("h3");
+                    const pret = document.createElement("p");
+
+                    pret.classList.add("pret");
+                    pretCont.classList.add("nume-pret");
+
+                    nume.textContent = item.name;
+                    pret.textContent = `\$${item.price}`;
+
+                    pretCont.appendChild(nume);
+                    pretCont.appendChild(pret);
+                    articlesContainer.appendChild(pretCont);
+
+                    //buton
+                    const cantitati = document.createElement("div");
+                    const input = document.createElement("input");
+                    const buton = document.createElement("button");
+
+                    cantitati.classList.add("cantitati");
+                    input.classList.add("cantitati-input");
+                    buton.classList.add("cantitati-button");
+
+                    input.setAttribute("type", "number");
+                    input.setAttribute("value", 1);
+
+                    buton.textContent = "REMOVE";
+
+                    buton.addEventListener("click", function () {
+                      addToCart(item);
+                    });
+                    cantitati.appendChild(input);
+                    cantitati.appendChild(buton);
+                    articlesContainer.appendChild(cantitati);
+
+                    cartContainer.appendChild(articlesContainer);
+                  });
+                };
+                renderItems(items);
+              })();
+            </script>
           </div>
           <div class="informatii-checkout">
             <label class="checkout-label" for="name">Name:</label>
@@ -102,6 +181,7 @@
             <input class="checkout-input" type="text" name="da" id="" />
             <button class="checkout-button">CHECK OUT</button>
             <div class="checkout-total">
+              <!--to do implement price calculation-->
               <h4>TOTAL :</h4>
               <p class="price-total">$499.96</p>
             </div>
