@@ -1,0 +1,476 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Oswald', sans-serif;
+} 
+
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0;
+}
+
+.image-container{
+  width: 100%;
+  height: 80%;
+  background-image: url("./fundal.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heading-container{
+  width: 60%;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title{
+  display:flex;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+    background-color: black;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+ /*bara de navigatie*/
+
+  .logo img {
+    margin-top: 10px;
+    height: 60px;
+    padding-left: 25px  ;
+  }
+
+  nav ul {
+    list-style: none;
+    align-items: center;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+    font-size: 17px;
+  }
+ 
+  nav ul li a:hover {
+    color: #FB8500;
+  }
+
+  /*categories*/
+
+.categories-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 3rem;
+  justify-content: center;
+  height: 80%;
+  align-items: center;
+}
+
+.sports-container{
+  width: 20%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px black solid;
+  border-radius: 20px;
+}
+
+.sports-container img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.sports-container h3{
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.sports-container:hover{
+  border-color: #FB8500;
+  transition: all 0.1s ease-in-out;
+}
+
+.sports-container:hover h3{
+  background-color: #FB8500;
+  transition: all 0.1s ease-in-out;
+  color: black;
+}
+
+/*pagina articole*/
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.football-container{
+  width: 70%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.articles-container{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.0rem;
+}
+
+.articles-container img{
+  width: 100%;
+  height: 60%;
+  transition: all 0.2s ease-in-out;
+}
+ 
+.transition:hover{
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+.articles-container button{
+  background-color:#FB8500;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 5px;
+  width: 80%;
+  transition: all 0.2s ease-in-out;
+}
+
+.articles-container button:hover{
+  background-color: black;
+  color: white;
+}
+
+  /*pagina login*/
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 80%;
+    height: 65%;
+    justify-content: flex-end;
+}
+
+.form-container{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-label{
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+
+.cosicon{
+  padding-right: 20px;
+}
+
+.wrapper{
+  width: 30%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("fundalaccount.jpg");
+  background-size: cover;
+}
+
+.wrapper2{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+
+.form-label input{
+  border-radius: 5px;
+  height: 30px;
+}
+
+.form-label label{
+  color: white;
+}
+
+.form-label-button-container button{
+  background-color: black;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.form-label-button-container{
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+
+.form-label-button-container button:hover{
+  background-color: #FB8500;
+  color: black;
+  transition: all 0.2 ease-in-out;
+}
+
+.form-register-button-container{
+  display: flex;
+  justify-content: flex-end;
+  height: 40px;
+  width: 40%;
+}
+
+.form-register-button-container button{
+  font-family: 'Oswald', sans-serif;
+  background-color:white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.form-register-button-container button:hover{
+  background-color: #FB8500;
+  transition: all 0.2 ease-in-out;
+}
+
+  /*footer*/
+
+  .footer-container{
+    width: 100%;
+    height: 10%;
+  }
+
+  footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer a {
+    color: white;
+  }
+
+  .cos{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .articole{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 5px;
+  }
+
+.produse-adaugate{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+  .continut-articole{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .poza{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .poza img{
+    width: 80%;
+    height: 95%;
+  }
+  .nume-pret{
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    border-left:3px black solid;
+    border-right:3px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cantitati{
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .checkout-button{
+    margin-top: 10px;
+    background-color: #FB8500;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    height: 10%;
+    font-size: 18px;
+  }
+
+  .checkout-button:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .cantitati-button{
+    height: 25%;
+    width: 40%;
+    background-color: black;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 5px;
+    border: none;
+  }  
+
+  .cantitati-input{
+    width: 20%;
+    height: 20%;
+    border-radius: 5px;
+  }
+
+  .cantitati-button:hover{
+    background-color: #FB8500;
+    color: black;
+    transition: 0.2s ease-in-out;
+  }
+
+.informatii-checkout{
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:0.5rem;
+}
+
+.checkout-label{
+  background-color: white;
+  font-family: 'Oswald', sans-serif;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.checkout-input{
+  border-radius: 5px;
+  height: 30px;
+  width: 60%;
+}
+
+.checkout-total{
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  background-color: white;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+  .checkout-total h4 {
+    display: none;
+  }
+}

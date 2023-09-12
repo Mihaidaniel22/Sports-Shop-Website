@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ski</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="../home.html" class="logo"
+          ><img src="../logo.png" alt="Logo"
+        /></a>
+        <nav>
+          <ul>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../categories.html">Categories</a></li>
+            <li><a href="../myaccount.html">My Account</a></li>
+            <li>
+              <a href="../shoppingcart.html"
+                ><i class="fa fa-shopping-cart fa-2x cosicon"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="main-container">
+        <div class="football-container">
+         <!-- <div class="articles-container">
+            <img class="transition" src="./ski1.jpg" />
+            <h3>79.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski2.jpg" />
+            <h3>99.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski3.jpg" />
+            <h3>89.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski4.jpg" />
+            <h3>79.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski5.jpg" />
+            <h3>19.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+
+          <div class="articles-container">
+            <img class="transition" src="./ski6.jpg" />
+            <h3>209.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski7.jpg" />
+            <h3>9.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski8.jpg" />
+            <h3>49.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski9.jpg" />
+            <h3>79.99$</h3>
+            <button>ADD TO CART</button>
+          </div>
+          <div class="articles-container">
+            <img class="transition" src="./ski10.jpg" />
+            <h3>39.99$</h3>
+            <button>ADD TO CART</button>
+          </div>-->
+          <script>
+            const fetchItems = async () => {
+              try {
+                const response = await fetch("http://localhost:3010/ski");
+                if (!response.ok) {
+                  throw new Error("failed to fetch ski");
+                }
+                const data = await response.json();
+                console.log("data fetch succesfully");
+                return data;
+              } catch (error) {
+                console.error(error);
+                return [];
+              }
+            };
+    
+            const addToCart = (item) => {
+              fetch("http://localhost:3010/cart", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log(data);
+                  alert("Product Added");
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            };
+    
+            (async () => {
+              const items = await fetchItems();
+              console.log(items);
+    
+              const renderItems = (items) => {
+                items.forEach((item) => {
+                  const footballContainer = document.querySelector(
+                    ".football-container"
+                  );
+                  const articlesContainer = document.createElement("div");
+                  articlesContainer.classList.add("articles-container");
+    
+                  //imagine
+                  const img = document.createElement("img");
+                  img.classList.add("transition");
+                  img.setAttribute("src", item.image.replace("categorii","."));
+                  articlesContainer.appendChild(img);
+    
+                  //pret
+                  const h3 = document.createElement("h3");
+                  h3.textContent = `\$${item.price}`;
+                  articlesContainer.appendChild(h3);
+    
+                  //buton
+                  const bt = document.createElement("button");
+                  bt.textContent = "ADD TO CART";
+                  bt.addEventListener("click", function () {
+                    addToCart(item);
+                  });
+                  articlesContainer.appendChild(bt);
+    
+                  footballContainer.appendChild(articlesContainer);
+                });
+              };
+              renderItems(items);
+            })();
+            </script>
+        </div>
+      </div>
+
+      <div class="footer-container">
+        <footer>
+          <p>&copy; 2023 BetterPlay</p>
+          <p><a href="#">Privacy Policy</a></p>
+        </footer>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

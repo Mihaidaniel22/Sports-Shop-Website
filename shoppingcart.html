@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="categorii/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./script.js" async></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="home.html" class="logo"><img src="logo.png" alt="Logo" /></a>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="myaccount.html">My Account</a></li>
+            <li>
+              <a href="shoppingcart.html"
+                ><i class="fa fa-shopping-cart fa-2x cosicon"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cos">
+        <div class="articole">
+          <div class="produse-adaugate">
+            <!--<div class="continut-articole">
+              <div class="poza">
+                <img src="cart1.avif" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>SOCCER BALL SIZE 5</h3>
+                <p class="pret">$49.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart2.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>TENNIS PAD</h3>
+                <p class="pret">$199.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart3.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>SKI WINTER JACKET</h3>
+                <p class="pret">$79.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>
+            <div class="continut-articole">
+              <div class="poza">
+                <img src="cart4.jpg" alt="" />
+              </div>
+              <div class="nume-pret">
+                <h3>BASKET HOOP</h3>
+                <p class="pret">$169.99</p>
+              </div>
+              <div class="cantitati">
+                <input class="cantitati-input" type="number" value="1" />
+                <button class="cantitati-button">REMOVE</button>
+              </div>
+            </div>-->
+
+            <script>
+              const fetchItems = async () => {
+                try {
+                  const response = await fetch("http://localhost:3010/cart");
+                  if (!response.ok) {
+                    throw new Error("failed to fetch cart");
+                  }
+                  const data = await response.json();
+                  console.log("data fetch succesfully");
+                  return data;
+                } catch (error) {
+                  console.error(error);
+                  return [];
+                }
+              };
+
+              (async () => {
+                const items = await fetchItems();
+                console.log(items);
+                const totalPrice = (items) => {
+                  var totalSum = 0;
+                  items.forEach((item) => {
+                    const price = item.price;
+                    totalSum += price;
+                  });
+                  let roundedSum = parseFloat(totalSum.toFixed(2));
+                  const displayTotalPrice =
+                    document.querySelector("p.price-total");
+                  displayTotalPrice.textContent = `\$${roundedSum}`;
+                };
+                const renderItems = (items) => {
+                  items.forEach((item) => {
+                    const cartContainer =
+                      document.querySelector(".produse-adaugate");
+                    const articlesContainer = document.createElement("div");
+                    articlesContainer.classList.add("continut-articole");
+
+                    //imagine
+                    const imgCont = document.createElement("div");
+                    const img = document.createElement("img");
+
+                    imgCont.classList.add("poza");
+                    img.setAttribute("src", `${item.image}`);
+                    imgCont.appendChild(img);
+                    articlesContainer.appendChild(imgCont);
+
+                    //pret
+                    const pretCont = document.createElement("div");
+                    const nume = document.createElement("h3");
+                    const pret = document.createElement("p");
+
+                    pret.classList.add("pret");
+                    pretCont.classList.add("nume-pret");
+
+                    nume.textContent = item.name;
+                    pret.textContent = `\$${item.price}`;
+
+                    pretCont.appendChild(nume);
+                    pretCont.appendChild(pret);
+                    articlesContainer.appendChild(pretCont);
+
+                    //buton
+                    const cantitati = document.createElement("div");
+
+                    const buton = document.createElement("button");
+
+                    cantitati.classList.add("cantitati");
+
+                    buton.classList.add("cantitati-button");
+
+                    buton.textContent = "REMOVE";
+
+                    buton.addEventListener("click", function () {
+                      deleteProduct(item._id);
+                    });
+
+                    cantitati.appendChild(buton);
+                    articlesContainer.appendChild(cantitati);
+
+                    cartContainer.appendChild(articlesContainer);
+                  });
+                };
+                renderItems(items);
+                totalPrice(items);
+              })();
+
+              const deleteProduct = async (productId) => {
+                try {
+                  const response = await fetch(
+                    `http://localhost:3010/cart/${productId}`,
+                    { method: "DELETE" }
+                  );
+                  if (!response.ok) {
+                    throw new Error("Failed to delete");
+                  }
+                  console.log("Product Deleted");
+                  alert("Product Deleted");
+                  window.location.href = "shoppingcart.html";
+                } catch (error) {
+                  console.log(error);
+                }
+              };
+            </script>
+          </div>
+          <div class="informatii-checkout">
+            <label class="checkout-label" for="name">Name:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="adress">Adress:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="email">Phone Number:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <label class="checkout-label" for="discount">Discount:</label>
+            <input class="checkout-input" type="text" name="da" id="" />
+            <button class="checkout-button">CHECK OUT</button>
+            <div class="checkout-total">
+              <h4>TOTAL :</h4>
+              <p class="price-total"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-container">
+        <footer class="footer">
+          <p>&copy; 2023 BetterPlay</p>
+          <p><a href="#">Privacy Policy</a></p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
